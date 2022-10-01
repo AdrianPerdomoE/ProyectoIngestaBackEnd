@@ -3,9 +3,9 @@
 
 var express = require("express");
 //controladores para proyectos
-var proyectoController = require("../controller/Proyectocontroller");
+var proyectoController = require("../controllers/Proyectocontroller");
 //controladores para usuarios
-var usuarioController = require('../controller/UsuarioController');
+var usuarioController = require('../controllers/UsuarioController');
 //controladores para facturas
 
 var router = express.Router();

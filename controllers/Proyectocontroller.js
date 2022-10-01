@@ -1,7 +1,7 @@
 "use strict"
 var Proyect = require("../models/Proyecto");
 var fs = require("fs");
-const { exists } = require("../models/Product");
+const { exists } = require("../models/Proyecto");
 var path = require("path");
 
 function buscarEtiquetaEnLista(etiquetas,lista){
