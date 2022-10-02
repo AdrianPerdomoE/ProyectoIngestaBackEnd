@@ -7,7 +7,7 @@ var controller = {
         var params = req.body;
         usuario.nombre = params.nombre;
         usuario.correo = params.correo;
-        usuario.contraseña = params.contraseña;
+        usuario.password = params.password;
         usuario.cargo = params.cargo;
         usuario.save((err, usuarioGuardado) => {
             if (err) {
@@ -38,14 +38,28 @@ var controller = {
 
         })
     },
+    getNombreUsuarios: function (req, res) {//Metodo solicitar nombre de los usuarios
+
+        User.find({ }).exec((err, Usuarios) => {
+            if (err) {
+                return res.status(500).send({ message: 'Error al devolver los datos.' });
+            }
+
+
+            if (!Usuarios) return req.status(404).send({ message: 'El usuario no existe' })
+            Usuarios.map(user => user.nombre)
+            return res.status(200).send({ USUARIO: Usuarios });
+
+        })
+    },
     getExistencia: function (req, res) {//Metodo para verificar la existencia de un Usuario
         var correo = req.params.correo;
         User.exists({correo:correo}).exec((err, Resultado) => {
             if (err) return res.status(500).send({ message: 'Error al verificar los datos' })
 
-            if (!Resultado) return res.status(200).send({ Existe:false})
+            if (!Resultado) return res.status(200).send({Existe:false})
 
-            return res.status(200).send({ Existe:true});
+            return res.status(200).send({Existe:true});
         })
 
     },

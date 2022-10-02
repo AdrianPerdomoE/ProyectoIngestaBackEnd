@@ -29,6 +29,7 @@ router.get("/GetArchivo/:archivo", proyectoController.getFile);
 //Rutas para el usuario
 router.post('/usuario', usuarioController.saveUsuario);
 router.get('/usuario/:correo', usuarioController.getUsuario);
+router.get('/NombreUsuarios', usuarioController.getNombreUsuarios);
 router.get('/Existencia/:correo', usuarioController.getExistencia);
 router.put('/usuario/:id', usuarioController.updateUsuario);
 router.delete('/usuario/:id', usuarioController.deleteUsuario);

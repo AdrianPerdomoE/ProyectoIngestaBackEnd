@@ -19,7 +19,7 @@ var controller = {
         proyecto.ubicacionArchivo = null;
         proyecto.formato = params.formato;
         proyecto.tipoArchivo = params.tipoArchivo;
-        proyecto.fechaCreacion = Date.now();
+        proyecto.fechaCreacion = new Date;
         proyecto.usosDescarga = [];
         proyecto.descargas = 0;
         proyecto.creador = params.creador;
@@ -148,12 +148,13 @@ var controller = {
         var product_id = req.params.id;
         var NombreArchivo = "Archivo no subido...";
         if (req.files) {
-            var filePath = req.files.image.path;
+            var filePath = req.files.archivo.path;
             var fileSplit = filePath.split("\\");
             var NombreArchivo = fileSplit[1];
             var extSplit = NombreArchivo.split("\.");
             var fileExt = extSplit[1];
-            Proyect.findByIdAndUpdate(product_id, { ubicacionArchivo: NombreArchivo }, { new: true }, (err, proyectoActualizado) => {
+
+            Proyect.findByIdAndUpdate(product_id, { ubicacionArchivo: NombreArchivo,formato:fileExt}, { new: true }, (err, proyectoActualizado) => {
                 if (err) {
                     return res.status(500).send({ msg: "El archivo no se ha subido" });
                 }
