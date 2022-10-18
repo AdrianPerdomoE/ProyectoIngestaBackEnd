@@ -3,10 +3,10 @@
 
 var express = require("express");
 //controladores para proyectos
-var proyectoController = require("../controller/Proyectocontroller");
+var proyectoController = require("../controllers/Proyectocontroller");
 //controladores para usuarios
-var usuarioController = require('../controller/UsuarioController');
-//controladores para facturas
+var usuarioController = require('../controllers/UsuarioController');
+
 
 var router = express.Router();
 var multipart = require("connect-multiparty");
@@ -29,6 +29,7 @@ router.get("/GetArchivo/:archivo", proyectoController.getFile);
 //Rutas para el usuario
 router.post('/usuario', usuarioController.saveUsuario);
 router.get('/usuario/:correo', usuarioController.getUsuario);
+router.get('/NombreUsuarios', usuarioController.getNombreUsuarios);
 router.get('/Existencia/:correo', usuarioController.getExistencia);
 router.put('/usuario/:id', usuarioController.updateUsuario);
 router.delete('/usuario/:id', usuarioController.deleteUsuario);
