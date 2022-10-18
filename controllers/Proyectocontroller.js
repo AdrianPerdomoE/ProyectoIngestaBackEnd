@@ -94,7 +94,7 @@ var controller = {
             return res.status(200).send({ PROYECTOS: proyectos });
         });
     },
-    getProyectosCreador: (req, res) => {//Metodo para buscar todos los proyectos de un formato
+    getProyectosCreador: (req, res) => {//Metodo para buscar todos los proyectos de un creador
         var creador = req.params.creador;
         Proyect.find({creador:creador}).exec((err, proyectos) => {
             if (err) {
