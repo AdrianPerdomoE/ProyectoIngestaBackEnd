@@ -26,6 +26,8 @@ router.put("/proyecto/:id", proyectoController.updateProyecto);
 router.delete("/proyecto/:id", proyectoController.deleteProyecto);
 router.post("/UploadArchivo/:id", multipartMiddleWare, proyectoController.uploadArchivo);
 router.get("/GetArchivo/:archivo", proyectoController.getFile);
+router.get("/DownloadFile/:archivo", proyectoController.DownloadFile);
+
 //Rutas para el usuario
 router.post('/usuario', usuarioController.saveUsuario);
 router.get('/usuario/:correo', usuarioController.getUsuario);
