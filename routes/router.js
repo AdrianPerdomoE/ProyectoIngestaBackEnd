@@ -6,13 +6,14 @@ var express = require("express");
 var proyectoController = require("../controllers/Proyectocontroller");
 //controladores para usuarios
 var usuarioController = require('../controllers/UsuarioController');
-
+//controladores para descargas
+var descargaControllers = require('../controllers/DescargaController')
 
 var router = express.Router();
 var multipart = require("connect-multiparty");
 var multipartMiddleWare = multipart({ uploadDir: "./archivos" });
-//rutas para proyecto
 
+//rutas para proyecto
 router.post("/proyecto", proyectoController.saveProyecto);
 router.get("/proyecto/:id", proyectoController.getProyecto);
 router.get("/AllProyectos", proyectoController.getAllProyectos);
@@ -34,5 +35,12 @@ router.get('/usuario/:correo', usuarioController.getUsuario);
 router.get('/Existencia/:correo', usuarioController.getExistencia);
 router.put('/usuario/:id', usuarioController.updateUsuario);
 router.delete('/usuario/:id', usuarioController.deleteUsuario);
+
+//Rutas para descargas
+
+router.post('/descarga', descargaControllers.saveDescarga);
+router.get('/AllDescargas', descargaControllers.getAllDescargas);
+router.get("/descargasUsuaio/:id", descargaControllers.getDescargasUsuario);
+router.delete("/descarga/:id", descargaControllers.deleteDescarga);
 
 module.exports = router;
