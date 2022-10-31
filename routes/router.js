@@ -40,7 +40,7 @@ router.delete('/usuario/:id', usuarioController.deleteUsuario);
 
 router.post('/descarga', descargaControllers.saveDescarga);
 router.get('/AllDescargas', descargaControllers.getAllDescargas);
-router.get("/descargasUsuaio/:id", descargaControllers.getDescargasUsuario);
+router.get("/descargasUsuario/:id", descargaControllers.getDescargasUsuario);
 router.delete("/descarga/:id", descargaControllers.deleteDescarga);
 
 module.exports = router;
