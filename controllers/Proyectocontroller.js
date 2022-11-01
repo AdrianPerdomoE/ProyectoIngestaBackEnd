@@ -5,7 +5,13 @@ const { exists } = require("../models/Proyecto");
 var path = require("path");
 
 function buscarEtiquetaEnLista(etiqueta, lista) {
-    return lista.includes(etiqueta)
+    let find = false
+    lista.forEach(valor => {
+        if(etiqueta.test(valor)){
+            find = true
+        }
+    })
+    return find
 }
 var controller = {
     saveProyecto: (req, res) =>
@@ -167,7 +173,7 @@ var controller = {
             if (!proyectos) {
                 return res.status(404).send({ msg: "No existen proyectos" });
             }
-            proyectos.filter(proyecto => buscarEtiquetaEnLista(etiqueta, proyecto.etiquetas))
+            proyectos = proyectos.filter(proyecto => buscarEtiquetaEnLista(etiqueta, proyecto.etiquetas))
             return res.status(200).send({ PROYECTOS: proyectos });
         });
     },
