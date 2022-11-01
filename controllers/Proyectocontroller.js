@@ -4,9 +4,8 @@ var fs = require("fs");
 const { exists } = require("../models/Proyecto");
 var path = require("path");
 
-function buscarEtiquetaEnLista(etiquetas, lista) {
-    etiquetas.forEach(etiqueta => { if (lista.includes(etiqueta)) return true })
-    return false
+function buscarEtiquetaEnLista(etiqueta, lista) {
+    return lista.includes(etiqueta)
 }
 var controller = {
     saveProyecto: (req, res) =>
@@ -112,7 +111,7 @@ var controller = {
      * Método para buscar todos los proyectos de un tipo de archivo
      * 
      */ {
-        var tipo = req.params.tipo;
+        let tipo = new RegExp(`${req.params.tipo}`, "i")
         Proyect.find({ tipoArchivo: tipo }).exec((err, proyectos) => {
             if (err) {
                 return res.status(500).send({ msg: "Ha ocurrido un error cargando los proyectos" });
@@ -128,7 +127,7 @@ var controller = {
      * Método para buscar todos los proyectos de un formato
      * 
      */ {
-        var formato = req.params.formato;
+        let formato = new RegExp(`${req.params.formato}`, "i")
         Proyect.find({ formato: formato }).exec((err, proyectos) => {
             if (err) {
                 return res.status(500).send({ msg: "Ha ocurrido un error cargando los proyectos" });
@@ -144,7 +143,7 @@ var controller = {
      * Método para buscar todos los proyectos de un formato
      * 
      */ {
-        var creador = req.params.creador;
+        let creador = new RegExp(`${req.params.creador}`, "i")
         Proyect.find({ creador: creador }).exec((err, proyectos) => {
             if (err) {
                 return res.status(500).send({ msg: "Ha ocurrido un error cargando los proyectos" });
@@ -160,7 +159,7 @@ var controller = {
      * Método para buscar todos los proyectos por etiquetas
      *
      */ {
-        var etiquetas = JSON.parse(req.params.etiquetas);
+        let etiqueta = new RegExp(`${req.params.etiqueta}`, "i")
         Proyect.find({}).exec((err, proyectos) => {
             if (err) {
                 return res.status(500).send({ msg: "Ha ocurrido un error cargando los proyectos" });
@@ -168,7 +167,7 @@ var controller = {
             if (!proyectos) {
                 return res.status(404).send({ msg: "No existen proyectos" });
             }
-            proyectos.filter(proyecto => buscarEtiquetaEnLista(etiquetas, proyecto.etiquetas))
+            proyectos.filter(proyecto => buscarEtiquetaEnLista(etiqueta, proyecto.etiquetas))
             return res.status(200).send({ PROYECTOS: proyectos });
         });
     },

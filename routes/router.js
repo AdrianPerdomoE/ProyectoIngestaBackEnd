@@ -21,7 +21,7 @@ router.get("/proyectosUsuario/:id", proyectoController.getProyectosUsuario);
 router.get("/proyectosTipo/:tipo", proyectoController.getProyectosTipo);
 router.get("/proyectosFormato/:formato", proyectoController.getProyectosFormato);
 router.get("/proyectosCreador/:creador", proyectoController.getProyectosCreador);
-router.get("/proyectosEtiquetas/:etiquetas", proyectoController.getProyectosEtiquetas);
+router.get("/proyectosEtiquetas/:etiqueta", proyectoController.getProyectosEtiquetas);
 router.get("/proyectosNombre/:searchBy", proyectoController.getProyectosNombre);
 router.put("/proyecto/:id", proyectoController.updateProyecto);
 router.delete("/proyecto/:id", proyectoController.deleteProyecto);
