@@ -192,7 +192,7 @@ var controller = {
     /**
      * Método para buscar todos los proyectos por etiquetas
      * 
-     * @param {JSON} etiquetas - Etiquetas en archivo JSON para filtrado de proyectos
+     * @param {Array} etiquetas - Etiquetas en archivo JSON para filtrado de proyectos
      * 
      * @return {Object} res.status(500).send() - No se encontró la etiqueta dada o un error obteniendo los proyectos
      * @return {Object} res.status(404).send() - No existen proyectos con esa etiqueta
@@ -217,7 +217,7 @@ var controller = {
      * Método para actualizar un proyecto de la colección, se busca en la base de datos por el id, se actualizan 
      * los valores que se pasan por la peticion y se devuelve el nuevo proyecto con los cambios realizados
      *
-     * @param {Object} id - Id del proyecto en cuestión
+     * @param {String} id - Id del proyecto en cuestión
      * 
      * @return {Object} res.status(500).send() - Error al tratar de actualizar la información del proyecto
      * @return {Object} res.status(404).send() - No se encontró el proyecto que se busca actualizar
@@ -241,7 +241,7 @@ var controller = {
     /**
      * Método para eliminar un proyecto de la base de datos, se busca por la id, se devuelve el proyecto eliminado
      * 
-     * @param {Object} id - Id del proyecto en cuestión
+     * @param {String} id - Id del proyecto en cuestión
      * 
      * @return {Object} res.status(500).send() - Error al tratar de eliminar el proyecto
      * @return {Object} res.status(404).send() - No se encontró el proyecto que se busca eliminar
@@ -263,7 +263,7 @@ var controller = {
     /**
      * Método para guardar un archivo en el servidor relacionado con los metodos de crear y actualizar PROYECTO 
      * 
-     * @param {Object} id - Id del proyecto en cuestión
+     * @param {String} id - Id del proyecto en cuestión
      * 
      * @return {Object} res.status(500).send() - Error al tratar de subir el proyecto
      * @return {Object} res.status(404).send() - Error al tratar de encontrar el archivo que se quiere subir
@@ -297,7 +297,7 @@ var controller = {
     /**
      * Método para devolver la ruta del archivo
      * 
-     * @param {Object} archivo - archivo que se busca
+     * @param {String} archivo - archivo que se busca
      * 
      * @return {Object} res.status(200).send() - No se econtró un archivo con esos parámetros
      */
