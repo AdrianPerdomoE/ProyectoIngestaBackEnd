@@ -16,6 +16,8 @@ function buscarEtiquetaEnLista(etiqueta, lista) {
 var controller = {
     saveProyecto: (req, res) =>
         /**
+        * Historia de usuario HU 9 - Actualizar proyecto
+        *
         * Método de la API para guardar un producto en la colección de la base de datos
         * 
         * @param {Array} etiquetas - Obtiene el Array de las etiquetas
@@ -61,6 +63,8 @@ var controller = {
     },
     getProyecto: (req, res) =>
     /**
+     * Historia de usuario HU 16, 9 - Descargar proyecto, Actualizar poryecto
+     *
      * Método para buscar un proyecto por id en la base de datos, devuelve el proyecto encontrado
      * 
      * @param {String} productoId - Id del proyecto que se desea buscar
