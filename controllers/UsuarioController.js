@@ -4,6 +4,8 @@ var User = require('../models/Usuario');
 var controller = {
     saveUsuario: (req, res) =>
      /**
+     * Historia de usuario HU 1 - Crear Usuario
+     *
      * Método para guardar un usuario en la colección de la base de datos
      * 
      * @param {String} nombre - nombre del usuario
@@ -35,6 +37,8 @@ var controller = {
     },
     getUsuario: function (req, res)
      /**
+     * Historia de usuario HU 2 - Iniciar sesión
+     *
      * Método para buscar un usuario en la base de datos por el correo electronico, retorna el usuario encontrado
      * 
      * @param {String} correo - correo del usuario
@@ -63,6 +67,8 @@ var controller = {
     },
     getNombreUsuarios: function (req, res) 
      /**
+     * Historia de usuario HU 19 - Búsqueda por nombre
+     *
      * Método solicitar nombre de los usuarios
      * 
      * @return {Object} res.status(500).send() - Error para obtener los datos
@@ -85,6 +91,8 @@ var controller = {
     },
     getExistencia: function (req, res)
      /**
+     * Historia de usuario HU 2 - Iniciar sesión
+     *
      * Metodo para verificar la existencia de un Usuario
      * 
      * @param {String} correo - correo del usuario
@@ -105,6 +113,8 @@ var controller = {
     },
     updateUsuario: function (req, res)
      /**
+     * Historia de usuario HU 1 - Crear Usuario
+     *
      * Método para actualizar un usuario
      * 
      * @param {String} id - id del usuario
